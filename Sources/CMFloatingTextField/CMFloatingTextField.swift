@@ -47,7 +47,9 @@ public struct CMFloatingTextField: View {
                         withAnimation() {
                             isFocused.toggle()
                         }
-                    }).accentColor(color)
+                    })
+                    .adaptiveKeyboardType(type: contentType)
+                    .accentColor(color)
                         .onChange(of: content) { _ in
                             checkValidation()
                             if(content == "") {
@@ -60,6 +62,7 @@ public struct CMFloatingTextField: View {
                                 }
                             }
                         }
+                    
                     if(isFilled) {
                         HStack {
                             Spacer()
@@ -156,5 +159,30 @@ public extension CMFloatingTextField {
                             color: self.color,
                             icon: self.systemIcon,
                             showClearButton: show)
+    }
+    
+}
+
+extension TextField {
+    func adaptiveKeyboardType(type contentType: ContentType) -> some View {
+        self.modifier(AdaptiveKeyboardTypeModifier(contentType: contentType))
+    }
+}
+
+struct AdaptiveKeyboardTypeModifier: ViewModifier {
+    @State var contentType: ContentType
+    init(contentType: ContentType) {
+        self._contentType = .init(initialValue: contentType)
+    }
+    func body(content: Content) -> some View {
+        var keyboardType: UIKeyboardType = .default
+        switch contentType {
+        case .email: keyboardType = .emailAddress
+        case .name: keyboardType = .namePhonePad
+        case .none: keyboardType = .default
+        case .number: keyboardType = .numberPad
+        case .phone: keyboardType = .numberPad
+        }
+        return content.keyboardType(keyboardType)
     }
 }
