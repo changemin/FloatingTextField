@@ -25,7 +25,7 @@ public func checkValidation(_ content: String, type: ContentType) -> Bool{
     }
 }
 
-public struct Requirements {
+public struct Restricts {
     var minLength: Int = Int.min
     var maxLegnth: Int = Int.max
     

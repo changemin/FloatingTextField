@@ -9,11 +9,13 @@ import SwiftUI
 
 public struct CMFloatingSecureField: View {
     @Binding public var content: String
+    @State var secureContent: String = ""
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
     @State public var color: Color = .purple
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
+    @State private var currentTextLength: Int = 0
     @State var isFocused: Bool = false
     @State var isFilled: Bool = false
     @State var isValid: Bool = true
@@ -43,29 +45,27 @@ public struct CMFloatingSecureField: View {
                         .frame(width: 30, height: 30)
                 }
                 ZStack {
-                    HStack {
-                        Text("\(String(repeating: "•", count: content.count))")
-                        Spacer()
-                    }
-                    
-                    TextField(placeholder, text: $content, onEditingChanged: {_ in
+                    TextField(placeholder, text: $secureContent, onEditingChanged: {_ in
                         withAnimation() {
                             isFocused.toggle()
                         }
                     }).accentColor(color)
-                        .onChange(of: content) { _ in
+                        .onChange(of: secureContent.count) { (change) in
                             checkValidation()
-                            if(content == "") {
+                            replaceSecureText()
+                            if(secureContent == "") {
+                                
                                 withAnimation() {
                                     isFilled = false
                                 }
                             } else {
+                                
                                 withAnimation() {
                                     isFilled = true
                                 }
                             }
+                            
                         }
-                    .foregroundColor(.clear)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     
@@ -87,6 +87,23 @@ public struct CMFloatingSecureField: View {
     }
     func clear() {
         self.content = ""
+        self.secureContent = ""
+    }
+    
+    func replaceSecureText() {
+        if (secureContent.count <= currentTextLength) {
+            self.content.removeLast()
+        }
+        else {
+            if(secureContent != "") {
+                let newChar = secureContent.last!
+                self.content += String(newChar)
+                if(secureContent.count >= 2) {
+                    self.secureContent = String(repeating: "•", count: secureContent.count - 1) + String(newChar)
+                }
+            }
+        }
+        currentTextLength = secureContent.count
     }
     func checkValidation() {
         switch contentType {
