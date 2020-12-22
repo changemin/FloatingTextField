@@ -92,7 +92,9 @@ public struct CMFloatingSecureField: View {
     
     func replaceSecureText() {
         if (secureContent.count <= currentTextLength) {
-            self.content.removeLast()
+            if(content != "") {
+                self.content.removeLast()
+            }
         }
         else {
             if(secureContent != "") {

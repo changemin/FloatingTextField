@@ -15,6 +15,11 @@ public enum ContentType {
     case name
 }
 
+public enum CMFloatingTextFieldStyle {
+    case normal
+    case square
+}
+
 public func checkValidation(_ content: String, type: ContentType) -> Bool{
     switch type {
     case .email: return true
