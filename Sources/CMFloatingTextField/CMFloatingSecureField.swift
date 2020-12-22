@@ -1,13 +1,13 @@
 //
-//  CMFloatingTextFieldView.swift
+//  CMFloatingTextSecureField.swift
 //
 //
-//  Created by 변경민 on 2020/12/21.
+//  Created by 변경민 on 2020/12/22.
 //
 
 import SwiftUI
 
-public struct CMFloatingTextField: View {
+public struct CMFloatingSecureField: View {
     @Binding public var content: String
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
@@ -41,6 +41,11 @@ public struct CMFloatingTextField: View {
                         .frame(width: 30, height: 30)
                 }
                 ZStack {
+                    HStack {
+                        Text("\(String(repeating: "•", count: content.count))")
+                        Spacer()
+                    }
+                    
                     TextField(placeholder, text: $content, onEditingChanged: {_ in
                         withAnimation() {
                             isFocused.toggle()
@@ -58,6 +63,10 @@ public struct CMFloatingTextField: View {
                                 }
                             }
                         }
+                    .foregroundColor(.clear)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    
                     if(isFilled) {
                         HStack {
                             Spacer()
@@ -122,33 +131,33 @@ public struct CMFloatingTextField: View {
     }
 }
 
-public extension CMFloatingTextField {
-    func contentType(_ contentType: ContentType) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+public extension CMFloatingSecureField {
+    func contentType(_ contentType: ContentType) -> CMFloatingSecureField{
+        CMFloatingSecureField(self.$content,
                             contentType: contentType,
                             placeholder: self.placeholder,
                             color: self.color,
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    func accentColor(_ color: Color) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+    func accentColor(_ color: Color) -> CMFloatingSecureField{
+        CMFloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: color,
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    func icon(systemName icon : String) -> CMFloatingTextField {
-        CMFloatingTextField(self.$content,
+    func icon(systemName icon: String) -> CMFloatingSecureField {
+        CMFloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,
                             icon: icon,
                             showClearButton: self.showClearButton)
     }
-    func showClearButton(_ show: Bool) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+    func showClearButton(_ show: Bool) -> CMFloatingSecureField{
+        CMFloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,

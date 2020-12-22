@@ -9,7 +9,6 @@ import Foundation
 
 public enum ContentType {
     case none
-    case password
     case email
     case number
     case phone
@@ -22,8 +21,15 @@ public func checkValidation(_ content: String, type: ContentType) -> Bool{
     case .name: return true
     case .none: return true
     case .number: return true
-    case .password: return true
     case .phone: return true
     }
 }
 
+public struct Requirements {
+    var minLength: Int = Int.min
+    var maxLegnth: Int = Int.max
+    
+    public init() {
+        
+    }
+}
