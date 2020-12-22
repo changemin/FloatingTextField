@@ -16,3 +16,14 @@ public enum ContentType {
     case name
 }
 
+public func checkValidation(_ content: String, type: ContentType) -> Bool{
+    switch type {
+    case .email: return true
+    case .name: return true
+    case .none: return true
+    case .number: return true
+    case .password: return true
+    case .phone: return true
+    }
+}
+

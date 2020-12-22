@@ -1,6 +1,6 @@
 //
 //  CMFloatingTextFieldView.swift
-//  
+//
 //
 //  Created by 변경민 on 2020/12/21.
 //
@@ -27,7 +27,7 @@ public struct CMFloatingTextField: View {
                         .font(.system(size: 14, weight: .medium, design: .rounded))
                     if(isFilled) {
                         Text("\(placeholder)")
-                            .foregroundColor(color)
+                            .foregroundColor(isFocused ? color : .gray)
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                     }
                 }
@@ -43,8 +43,6 @@ public struct CMFloatingTextField: View {
                 ZStack {
                     if(contentType == .password) {
                         SecureField(placeholder, text: $content).accentColor(color)
-                    } else {
-                        TextField(placeholder, text: $content).accentColor(color)
                             .onChange(of: content) { _ in
                                 checkValidation()
                                 if(content == "") {
@@ -56,9 +54,23 @@ public struct CMFloatingTextField: View {
                                         isFilled = true
                                     }
                                 }
-                            }.onTapGesture {
-                                withAnimation() {
-                                    isFocused = true
+                            }
+                    } else {
+                        TextField(placeholder, text: $content, onEditingChanged: {_ in
+                            withAnimation() {
+                                isFocused.toggle()
+                            }
+                        }).accentColor(color)
+                            .onChange(of: content) { _ in
+                                checkValidation()
+                                if(content == "") {
+                                    withAnimation() {
+                                        isFilled = false
+                                    }
+                                } else {
+                                    withAnimation() {
+                                        isFilled = true
+                                    }
                                 }
                             }
                     }
@@ -128,7 +140,7 @@ public struct CMFloatingTextField: View {
 }
 
 public extension CMFloatingTextField {
-    public func contentType(_ contentType: ContentType) -> CMFloatingTextField{
+    func contentType(_ contentType: ContentType) -> CMFloatingTextField{
         CMFloatingTextField(self.$content,
                             contentType: contentType,
                             placeholder: self.placeholder,
@@ -136,7 +148,7 @@ public extension CMFloatingTextField {
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    public func accentColor(_ color: Color) -> CMFloatingTextField{
+    func accentColor(_ color: Color) -> CMFloatingTextField{
         CMFloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
@@ -144,7 +156,7 @@ public extension CMFloatingTextField {
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    public func icon(_ icon: String) -> CMFloatingTextField {
+    func icon(_ icon: String) -> CMFloatingTextField {
         CMFloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
@@ -152,7 +164,7 @@ public extension CMFloatingTextField {
                             icon: icon,
                             showClearButton: self.showClearButton)
     }
-    public func showClearButton(_ show: Bool) -> CMFloatingTextField{
+    func showClearButton(_ show: Bool) -> CMFloatingTextField{
         CMFloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
