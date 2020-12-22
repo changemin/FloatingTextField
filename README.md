@@ -8,8 +8,8 @@ SwiftUI Floating TextField
 
 ## ScreenShots
 
-<p>
-    <img src="src/appVideo.gif" width="50%" />
+<p align="center">
+    <img src="src/appVideo.gif" width="40%" />
 </p>
 
 ## Requirements
