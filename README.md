@@ -1,5 +1,7 @@
+# CMFloatingTextField
+
 <p align="center">
-    <img src="src/main-preview.gif" width="100%”/>
+    <img src="src/main-preview.gif" width="75%”/>
 </p>
 
 SwiftUI Floating TextField
@@ -59,9 +61,11 @@ struct ContentView: View {
 }
 ```
 ### Result
-<img src="src/Example-simple-1.png" width="25%">
-<img src="src/Example-simple-2.png" width="25%">
-<img src="src/Example-simple-3.png" width="25%">
+<p float="left">
+    <img src="src/Example-simple-1.png" width="25%">
+    <img src="src/Example-simple-2.png" width="25%">
+    <img src="src/Example-simple-3.png" width="25%">
+</p>
 
 ### Add Icon
 ```Swift
@@ -79,9 +83,11 @@ struct ContentView: View {
 }
 ```
 ### Result
-<img src="src/Example-icon-1.png" width="25%">
-<img src="src/Example-icon-2.png" width="25%">
-<img src="src/Example-icon-3.png" width="25%">
+<p float="left">
+    <img src="src/Example-icon-1.png" width="25%">
+    <img src="src/Example-icon-2.png" width="25%">
+    <img src="src/Example-icon-3.png" width="25%">
+</p>
 
 ### Advanced
 ```Swift
@@ -105,9 +111,11 @@ struct ContentView: View {
 You can also use `TextField` modifiers like `.autocapitalization()` `.autocapitalization()`
 
 ### Result
-<img src="src/Example-advanced-1.png" width="25%">
-<img src="src/Example-advanced-2.png" width="25%">
-<img src="src/Example-advanced-3.png" width="25%">
+<p float="left">
+    <img src="src/Example-advanced-1.png" width="25%">
+    <img src="src/Example-advanced-2.png" width="25%">
+    <img src="src/Example-advanced-3.png" width="25%">
+</p>
 
 ## TODO
 - [ ] Square Style
