@@ -25,11 +25,13 @@ public struct CMFloatingSecureField: View {
                     Text("\(placeholder)")
                         .foregroundColor(color.opacity(0))
                         .font(.system(size: 14, weight: .medium, design: .rounded))
-                    if(isFilled) {
-                        Text("\(placeholder)")
-                            .foregroundColor(isFocused ? color : .gray)
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                    }
+                    
+                    Text("\(placeholder)")
+                        .offset(y: isFilled ? 0 : 10)
+                        .foregroundColor(isFocused ? color : .gray)
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .opacity(isFilled ? 1 : 0)
+                    
                 }
                 Spacer()
             }

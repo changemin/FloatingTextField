@@ -25,11 +25,13 @@ public struct CMFloatingTextField: View {
                     Text("\(placeholder)")
                         .foregroundColor(color.opacity(0))
                         .font(.system(size: 14, weight: .medium, design: .rounded))
-                    if(isFilled) {
-                        Text("\(placeholder)")
-                            .foregroundColor(isFocused ? color : .gray)
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                    }
+                    
+                    Text("\(placeholder)")
+                        .offset(y: isFilled ? 0 : 10)
+                        .foregroundColor(isFocused ? color : .gray)
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .opacity(isFilled ? 1 : 0)
+                    
                 }
                 Spacer()
             }
@@ -49,11 +51,11 @@ public struct CMFloatingTextField: View {
                         .onChange(of: content) { _ in
                             checkValidation()
                             if(content == "") {
-                                withAnimation() {
+                                withAnimation(.spring()) {
                                     isFilled = false
                                 }
                             } else {
-                                withAnimation() {
+                                withAnimation(.spring()) {
                                     isFilled = true
                                 }
                             }
