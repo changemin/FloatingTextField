@@ -1,14 +1,16 @@
 # CMFloatingTextField
 
 <p align="center">
-    <img src="src/main-preview.gif" width="75%”/>
+    <img src="src/main-preview.gif" width="75%”>
 </p>
 
 SwiftUI Floating TextField
 
 ## ScreenShots
 
-<img src="src/appVideo.gif" width="50%">
+<p align="center">
+    <img src="src/appVideo.gif" width="50%”>
+</p>
 
 ## Requirements
 * Xcode 11+
