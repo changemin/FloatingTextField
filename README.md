@@ -6,7 +6,7 @@
 
 SwiftUI Floating TextField
 
-## ScreenShots
+## Preview
 
 <p align="center">
     <img src="src/appVideo.gif" width="40%" />
