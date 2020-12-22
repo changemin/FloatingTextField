@@ -11,7 +11,7 @@ public struct CMFloatingTextField: View {
     @Binding public var content: String
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
-    @State public var color: Color = .purple
+    @State public var color: Color = .blue
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
     @State public var style: CMFloatingTextFieldStyle = .normal

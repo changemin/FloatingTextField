@@ -12,7 +12,7 @@ public struct CMFloatingSecureField: View {
     @State var secureContent: String = ""
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
-    @State public var color: Color = .purple
+    @State public var color: Color = .blue
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
     @State private var currentTextLength: Int = 0
