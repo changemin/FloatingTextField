@@ -1,28 +1,42 @@
-# CMFloatingTextField
-
 <p align="center">
-    <img src="src/main-preview.gif" width="50%" />
+  <a href="" rel="noopener">
+ <img width=300px  src="src/main-preview.gif" alt="Project logo"></a>
 </p>
 
-SwiftUI Floating TextField
+<h3 align="center">🌬CMFloatingTextField🌬</h3>
 
-## Preview
+<div align="center">
+
+![License](https://img.shields.io/github/license/CM-Material/CMFloatingTextField?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)
+
+</div>
+
+---
+
+## 📹 Preview
 
 <p align="center">
     <img src="src/appVideo.gif" width="40%" />
 </p>
 
-## Requirements
+## 🏁 Getting Started
+
+### Requirements
 * Xcode 11+
 * SwiftUI
 * iOS 14+
 * macOS 10.15+
 
-## Installaion
-### Swift Package Manager(SPM)
+### Installaion
+#### Swift Package Manager(SPM)
     File ➜ Swift Packages ➜ Add Package Dependancy..
 
-## Usage
+```Swift
+.package(url: "https://github.com/CM-Material/CMLottiePlayer", from: "1.0.0")
+```
+
+## 🎈Usage
 ```Swift
 CMFloatingTextField(_ content: Binding<String>, placeholder: String)
 CMFloatingSecureField(_ content: Binding<String>, placeholder: String)
@@ -31,7 +45,7 @@ CMFloatingSecureField(_ content: Binding<String>, placeholder: String)
 * `content` : user input
 * `placeholder` : placeholder text before add text
 
-#### Custom Modifiers
+#### 🛠Custom Modifiers
 ```Swift
 CMFloatingTextField(_ content: Binding<String>, placeholder: String)
     .accentColor(_ color: Color)
@@ -48,7 +62,7 @@ CMFloatingTextField(_ content: Binding<String>, placeholder: String)
 * `.showClearButton()` : to show clear button or not
 * `.styled()`(In Progess) : `CMFloatingTextFieldStyle.normal`, `CMFloatingTextFieldStyle.sqaure`
 ## Example
-### Simple
+#### 👶 Simple
 ```Swift
 import SwiftUI
 import CMFloatingTextField
@@ -69,7 +83,7 @@ struct ContentView: View {
     <img src="src/Example-simple-3.png" width="25%">
 </p>
 
-### Add Icon
+### ➕ Add Icon
 ```Swift
 import SwiftUI
 import CMFloatingTextField
@@ -119,11 +133,15 @@ You can also use `TextField` modifiers like `.autocapitalization()` `.autocapita
     <img src="src/Example-advanced-3.png" width="25%">
 </p>
 
-## TODO
+## ✅ TODO
 - [ ] Square Style
 - [ ] Add Restrict Options
 - [ ] Validation Check
 
-## License
+## 📜 License
 
 CMLoadingButton is available under the MIT license. See the `LICENSE` file for more info.
+
+## ✍️ Author
+
+- [🇰🇷@Changemin](https://github.com/kylelobo)
