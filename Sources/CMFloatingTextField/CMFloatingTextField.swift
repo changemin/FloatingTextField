@@ -21,20 +21,39 @@ public struct CMFloatingTextField: View {
     
     public var body: some View {
         ZStack {
-            VStack(spacing: 0){
+            if(style == .square) {
                 HStack {
                     ZStack {
                         Text("\(placeholder)")
-                            .foregroundColor(color.opacity(0))
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                        
-                        Text("\(placeholder)")
-                            .offset(y: isFilled ? 0 : 10)
+                            .offset(x: 15, y: isFilled ? -20 : -10)
                             .foregroundColor(isFocused ? color : .gray)
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                             .opacity(isFilled ? 1 : 0)
                     }
                     Spacer()
+                }
+            }
+            VStack(spacing: 0){
+                if(style == .normal) {
+                    HStack {
+                        ZStack {
+                            Text("\(placeholder)")
+                                .foregroundColor(color.opacity(0))
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                            
+                            Text("\(placeholder)")
+                                .offset(y: isFilled ? 0 : 10)
+                                .foregroundColor(isFocused ? color : .gray)
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .opacity(isFilled ? 1 : 0)
+                        }
+                        Spacer()
+                    }
+                }
+                else if(style == .square) {
+                    Text("\(placeholder)")
+                        .foregroundColor(color.opacity(0))
+                        .font(.system(size: 5, weight: .medium, design: .rounded))
                 }
                 HStack {
                     if(systemIcon != "") {
@@ -72,14 +91,24 @@ public struct CMFloatingTextField: View {
                                     clear()
                                 }) {
                                     Image(systemName: "xmark.circle").foregroundColor(.gray)
+                                        .padding(.trailing, 8)
                                 }
                             }
                         }
                     }
                 }
-                Rectangle().frame(height: 2).cornerRadius(2).padding(.top, 5).foregroundColor(isFocused ? color : .gray)
+                if(style == .normal) {
+                    Rectangle().frame(height: 2).cornerRadius(2).padding(.top, 5).foregroundColor(isFocused ? color : .gray)
+                }
+                else if(style == .square){
+                    Rectangle().frame(height: 2).cornerRadius(2).padding(.top, 5).foregroundColor(.clear)
+                }
             }
-        }
+        }.overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(isFocused ? color : Color.gray, lineWidth: style == .square ? 0.75 : 0)
+            
+        )
     }
     func clear() {
         self.content = ""
