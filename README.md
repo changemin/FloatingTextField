@@ -145,4 +145,4 @@ CMLoadingButton is available under the MIT license. See the `LICENSE` file for m
 
 ## ✍️ Author
 
-- [🇰🇷@Changemin](https://github.com/kylelobo)
+- Byun Kyung Min ➜ [🇰🇷@Changemin](https://github.com/Changemin)
