@@ -7,8 +7,8 @@
 
 <div align="center">
 
-![License](https://img.shields.io/github/license/CM-Material/CMFloatingTextField?style=for-the-badge)
-![Release](https://img.shields.io/github/v/release/CM-Material/CMFloatingTextField?style=for-the-badge)
+![License](https://img.shields.io/github/license/Changemin/CMFloatingTextField?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/Changemin/CMFloatingTextField?style=for-the-badge)
 
 
 </div>
@@ -34,7 +34,7 @@
     File ➜ Swift Packages ➜ Add Package Dependancy..
 
 ```Swift
-.package(url: "https://github.com/CM-Material/CMLottiePlayer", from: "1.0.0")
+.package(url: "https://github.com/Changemin/CMLottiePlayer", from: "1.0.0")
 ```
 
 ## 🎈Usage
