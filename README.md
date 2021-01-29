@@ -3,12 +3,12 @@
  <img width=300px  src="src/main-preview.gif" alt="Project logo"></a>
 </p>
 
-<h3 align="center">🌬CMFloatingTextField🌬</h3>
+<h3 align="center">🌬 SwiftUI FloatingTextField🌬</h3>
 
 <div align="center">
 
-![License](https://img.shields.io/github/license/Changemin/CMFloatingTextField?style=for-the-badge)
-![Release](https://img.shields.io/github/v/release/Changemin/CMFloatingTextField?style=for-the-badge)
+![License](https://img.shields.io/github/license/Changemin/FloatingTextField?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/Changemin/FloatingTextField?style=for-the-badge)
 
 
 </div>
@@ -34,13 +34,13 @@
     File ➜ Swift Packages ➜ Add Package Dependancy..
 
 ```Swift
-.package(url: "https://github.com/Changemin/CMLottiePlayer", from: "1.0.0")
+.package(url: "https://github.com/Changemin/FloatingTextField", from: "1.1.0")
 ```
 
 ## 🎈Usage
 ```Swift
-CMFloatingTextField(_ content: Binding<String>, placeholder: String)
-CMFloatingSecureField(_ content: Binding<String>, placeholder: String)
+FloatingTextField(_ content: Binding<String>, placeholder: String)
+FloatingSecureField(_ content: Binding<String>, placeholder: String)
 // Secure Field for password
 ```
 * `content` : user input
@@ -48,12 +48,12 @@ CMFloatingSecureField(_ content: Binding<String>, placeholder: String)
 
 #### 🛠Custom Modifiers
 ```Swift
-CMFloatingTextField(_ content: Binding<String>, placeholder: String)
+FloatingTextField(_ content: Binding<String>, placeholder: String)
     .accentColor(_ color: Color)
     .contentType(_ contentType: ContentType)
     .icon(systemName icon : String)
     .showClearButton(_ show: Bool)
-    .styled(_ style: CMFloatingTextFieldStyle)
+    .styled(_ style: FloatingTextFieldStyle)
 
 // All of the parameter is optional
 ```
@@ -61,18 +61,18 @@ CMFloatingTextField(_ content: Binding<String>, placeholder: String)
 * `.contentType()` : `.none` `.email` `.number` `.phone` `.name` support different keyboard type
 * `.icon()` : icon name of `SF Symbols` 
 * `.showClearButton()` : to show clear button or not
-* `.styled()`(In Progess) : `CMFloatingTextFieldStyle.normal`, `CMFloatingTextFieldStyle.sqaure`
+* `.styled()`(In Progess) : `FloatingTextFieldStyle.normal`, `FloatingTextFieldStyle.sqaure`
 ## Example
 #### 👶 Simple
 ```Swift
 import SwiftUI
-import CMFloatingTextField
+import FloatingTextField
 
 struct ContentView: View {
     @State var input: String = ""
     
     var body: some View {
-        CMFloatingTextField($input, placeholder: "Please type")
+        FloatingTextField($input, placeholder: "Please type")
             .padding()
     }
 }
@@ -87,13 +87,13 @@ struct ContentView: View {
 ### ➕ Add Icon
 ```Swift
 import SwiftUI
-import CMFloatingTextField
+import FloatingTextField
 
 struct ContentView: View {
     @State var input: String = ""
     
     var body: some View {
-        CMFloatingTextField($input, placeholder: "Please type")
+        FloatingTextField($input, placeholder: "Please type")
             .icon(systemName: "flame.fill")
             .padding()
     }
@@ -109,13 +109,13 @@ struct ContentView: View {
 ### Advanced
 ```Swift
 import SwiftUI
-import CMFloatingTextField
+import FloatingTextField
 
 struct ContentView: View {
     @State var input: String = ""
     
     var body: some View {
-        CMFloatingTextField($input, placeholder: "Nick Name")
+        FloatingTextField($input, placeholder: "Nick Name")
             .icon(systemName: "flame.fill")
             .contentType(.name)
             .accentColor(Color.orange)
@@ -141,7 +141,7 @@ You can also use `TextField` modifiers like `.autocapitalization()` `.autocapita
 
 ## 📜 License
 
-CMFloatingTextField is available under the MIT license. See the `LICENSE` file for more info.
+FloatingTextField is available under the MIT license. See the `LICENSE` file for more info.
 
 ## ✍️ Author
 

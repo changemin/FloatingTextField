@@ -1,5 +1,5 @@
 //
-//  CMFloatingTextSecureField.swift
+//  FloatingTextSecureField.swift
 //
 //
 //  Created by 변경민 on 2020/12/22.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct CMFloatingSecureField: View {
+public struct FloatingSecureField: View {
     @Binding public var content: String
     @State var secureContent: String = ""
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
-    @State public var color: Color = .blue
+    @State public var color: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
     @State private var currentTextLength: Int = 0
@@ -75,7 +75,7 @@ public struct CMFloatingSecureField: View {
                             Button(action: {
                                 clear()
                             }) {
-                                Image(systemName: "xmark.circle").foregroundColor(.gray)
+                                Image(systemName: "xmark").foregroundColor(.gray)
                             }
                         }
                     }
@@ -152,33 +152,33 @@ public struct CMFloatingSecureField: View {
     }
 }
 
-public extension CMFloatingSecureField {
-    func contentType(_ contentType: ContentType) -> CMFloatingSecureField{
-        CMFloatingSecureField(self.$content,
+public extension FloatingSecureField {
+    func contentType(_ contentType: ContentType) -> FloatingSecureField{
+        FloatingSecureField(self.$content,
                             contentType: contentType,
                             placeholder: self.placeholder,
                             color: self.color,
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    func accentColor(_ color: Color) -> CMFloatingSecureField{
-        CMFloatingSecureField(self.$content,
+    func accentColor(_ color: Color) -> FloatingSecureField{
+        FloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: color,
                             icon: self.systemIcon,
                             showClearButton: self.showClearButton)
     }
-    func icon(systemName icon: String) -> CMFloatingSecureField {
-        CMFloatingSecureField(self.$content,
+    func icon(systemName icon: String) -> FloatingSecureField {
+        FloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,
                             icon: icon,
                             showClearButton: self.showClearButton)
     }
-    func showClearButton(_ show: Bool) -> CMFloatingSecureField{
-        CMFloatingSecureField(self.$content,
+    func showClearButton(_ show: Bool) -> FloatingSecureField{
+        FloatingSecureField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,

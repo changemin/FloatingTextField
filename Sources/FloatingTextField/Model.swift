@@ -1,6 +1,6 @@
 //
 //  Model.swift
-//  CMFloatingTextField
+//  FloatingTextField
 //
 //  Created by 변경민 on 2020/12/21.
 //
@@ -15,7 +15,7 @@ public enum ContentType {
     case name
 }
 
-public enum CMFloatingTextFieldStyle {
+public enum FloatingTextFieldStyle {
     case normal
     case square
 }

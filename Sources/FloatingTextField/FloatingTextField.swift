@@ -1,5 +1,5 @@
 //
-//  CMFloatingTextFieldView.swift
+//  FloatingTextFieldView.swift
 //
 //
 //  Created by 변경민 on 2020/12/21.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct CMFloatingTextField: View {
+public struct FloatingTextField: View {
     @Binding public var content: String
     @State public var contentType: ContentType = .none
     @State public var placeholder: String = "Placeholder"
-    @State public var color: Color = .blue
+    @State public var color: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
-    @State public var style: CMFloatingTextFieldStyle = .normal
+    @State public var style: FloatingTextFieldStyle = .normal
     @State var isFocused: Bool = false
     @State var isFilled: Bool = false
     @State var isValid: Bool = true
@@ -90,7 +90,7 @@ public struct CMFloatingTextField: View {
                                 Button(action: {
                                     clear()
                                 }) {
-                                    Image(systemName: "xmark.circle").foregroundColor(.gray)
+                                    Image(systemName: "xmark").foregroundColor(.gray)
                                         .padding(.trailing, 8)
                                 }
                             }
@@ -122,7 +122,7 @@ public struct CMFloatingTextField: View {
         case .phone: self.isValid = true
         }
     }
-    public init(_ content: Binding<String>, contentType: ContentType, placeholder: String, color: Color, icon: String, showClearButton: Bool, style: CMFloatingTextFieldStyle) {
+    public init(_ content: Binding<String>, contentType: ContentType, placeholder: String, color: Color, icon: String, showClearButton: Bool, style: FloatingTextFieldStyle) {
         self._content = content
         self._contentType = .init(initialValue: contentType)
         self._placeholder = .init(initialValue: placeholder)
@@ -159,9 +159,9 @@ public struct CMFloatingTextField: View {
     }
 }
 
-public extension CMFloatingTextField {
-    func contentType(_ contentType: ContentType) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+public extension FloatingTextField {
+    func contentType(_ contentType: ContentType) -> FloatingTextField{
+        FloatingTextField(self.$content,
                             contentType: contentType,
                             placeholder: self.placeholder,
                             color: self.color,
@@ -169,8 +169,8 @@ public extension CMFloatingTextField {
                             showClearButton: self.showClearButton,
                             style: self.style)
     }
-    func accentColor(_ color: Color) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+    func accentColor(_ color: Color) -> FloatingTextField{
+        FloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: color,
@@ -178,8 +178,8 @@ public extension CMFloatingTextField {
                             showClearButton: self.showClearButton,
                             style: self.style)
     }
-    func icon(systemName icon : String) -> CMFloatingTextField {
-        CMFloatingTextField(self.$content,
+    func icon(systemName icon : String) -> FloatingTextField {
+        FloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,
@@ -187,8 +187,8 @@ public extension CMFloatingTextField {
                             showClearButton: self.showClearButton,
                             style: self.style)
     }
-    func showClearButton(_ show: Bool) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+    func showClearButton(_ show: Bool) -> FloatingTextField{
+        FloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,
@@ -196,8 +196,8 @@ public extension CMFloatingTextField {
                             showClearButton: show,
                             style: self.style)
     }
-    func styled(_ style: CMFloatingTextFieldStyle) -> CMFloatingTextField{
-        CMFloatingTextField(self.$content,
+    func styled(_ style: FloatingTextFieldStyle) -> FloatingTextField{
+        FloatingTextField(self.$content,
                             contentType: self.contentType,
                             placeholder: self.placeholder,
                             color: self.color,
