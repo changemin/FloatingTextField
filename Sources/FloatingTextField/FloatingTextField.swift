@@ -4,7 +4,6 @@
 //
 //  Created by 변경민 on 2020/12/21.
 //
-
 import SwiftUI
 
 public struct FloatingTextField: View {
@@ -15,6 +14,8 @@ public struct FloatingTextField: View {
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
     @State public var style: FloatingTextFieldStyle = .normal
+    @State public var fontSize: CGFloat = 15
+    @State public var fontWeight: Font.Weight = .regular
     @State var isFocused: Bool = false
     @State var isFilled: Bool = false
     @State var isValid: Bool = true
@@ -27,7 +28,7 @@ public struct FloatingTextField: View {
                         Text("\(placeholder)")
                             .offset(x: 15, y: isFilled ? -20 : -10)
                             .foregroundColor(isFocused ? color : .gray)
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
                             .opacity(isFilled ? 1 : 0)
                     }
                     Spacer()
@@ -39,12 +40,12 @@ public struct FloatingTextField: View {
                         ZStack {
                             Text("\(placeholder)")
                                 .foregroundColor(color.opacity(0))
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
                             
                             Text("\(placeholder)")
                                 .offset(y: isFilled ? 0 : 10)
                                 .foregroundColor(isFocused ? color : .gray)
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
                                 .opacity(isFilled ? 1 : 0)
                         }
                         Spacer()
@@ -156,6 +157,13 @@ public struct FloatingTextField: View {
     public init(_ content: Binding<String>, placeholder: String) {
         self._content = content
         self._placeholder = .init(initialValue: placeholder)
+    }
+    
+    public init(_ content: Binding<String>, placeholder: String, fontSize: CGFloat, fontWeight: Font.Weight) {
+        self._content = content
+        self._placeholder = .init(initialValue: placeholder)
+        self._fontSize = .init(initialValue: fontSize)
+        self._fontWeight = .init(initialValue: fontWeight)
     }
 }
 
