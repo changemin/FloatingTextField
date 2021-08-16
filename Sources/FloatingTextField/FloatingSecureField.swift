@@ -4,7 +4,6 @@
 //
 //  Created by 변경민 on 2020/12/22.
 //
-
 import SwiftUI
 
 public struct FloatingSecureField: View {
@@ -16,6 +15,8 @@ public struct FloatingSecureField: View {
     @State public var systemIcon: String = ""
     @State public var showClearButton: Bool = true
     @State private var currentTextLength: Int = 0
+    @State public var fontSize: CGFloat = 15
+    @State public var fontWeight: Font.Weight = .regular
     @State var isFocused: Bool = false
     @State var isFilled: Bool = false
     @State var isValid: Bool = true
@@ -26,12 +27,12 @@ public struct FloatingSecureField: View {
                 ZStack {
                     Text("\(placeholder)")
                         .foregroundColor(color.opacity(0))
-                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
                     
                     Text("\(placeholder)")
                         .offset(y: isFilled ? 0 : 10)
                         .foregroundColor(isFocused ? color : .gray)
-                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
                         .opacity(isFilled ? 1 : 0)
                     
                 }
@@ -149,6 +150,13 @@ public struct FloatingSecureField: View {
     public init(_ content: Binding<String>, placeholder: String) {
         self._content = content
         self._placeholder = .init(initialValue: placeholder)
+    }
+    
+    public init(_ content: Binding<String>, placeholder: String, fontSize: CGFloat, fontWeight: Font.Weight) {
+        self._content = content
+        self._placeholder = .init(initialValue: placeholder)
+        self._fontSize = .init(initialValue: fontSize)
+        self._fontWeight = .init(initialValue: fontWeight)
     }
 }
 
