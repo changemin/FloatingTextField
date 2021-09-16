@@ -64,7 +64,7 @@ public struct FloatingTextField: View {
                             .frame(width: 30, height: 30)
                     }
                     ZStack {
-                        TextField(placeholder, text: $content, onEditingChanged: {_ in
+                        TextField(placeholder, text: $content, onCommit: {
                             withAnimation() {
                                 isFocused.toggle()
                             }
